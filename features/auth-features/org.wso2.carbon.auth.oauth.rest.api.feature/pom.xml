@@ -37,6 +37,10 @@
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon.auth</groupId>
+            <artifactId>org.wso2.carbon.auth.user.info</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.auth</groupId>
             <artifactId>org.wso2.carbon.auth.oauth.rest.api</artifactId>
         </dependency>
     </dependencies>
@@ -76,6 +80,10 @@
                                     <symbolicName>org.wso2.carbon.auth.oauth.rest.api</symbolicName>
                                     <version>${carbon.auth.version}</version>
                                 </bundle>
+                                <bundle>
+                                    <symbolicName>org.wso2.carbon.auth.user.info</symbolicName>
+                                    <version>${carbon.auth.version}</version>
+                                </bundle>
                             </bundles>
                             <importFeatures>
                                 <feature>
@@ -83,6 +91,32 @@
                                     <version>${carbon.auth.version}</version>
                                 </feature>
                             </importFeatures>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.wso2.carbon.auth</groupId>
+                                    <artifactId>org.wso2.carbon.auth.user.info</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>bundle</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/docs</outputDirectory>
+                                    <includes>config-docs/**</includes>
+                                </artifactItem>
+                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>

@@ -26,29 +26,29 @@ public interface TokenManager {
     /**
      * Persist token information
      *
-     * @param accessToken
-     * @param refreshToken
-     * @param clientID
-     * @param authUser
-     * @param userDomain
-     * @param timeCreated
-     * @param refreshTokenCreatedTime
-     * @param validityPeriod
-     * @param refreshTokenValidityPeriod
-     * @param tokenScopeHash
-     * @param tokenState
-     * @param userType
-     * @param grantType
+     * @param accessToken                Access token value
+     * @param refreshToken               Refresh token value
+     * @param clientID                   ClientID value
+     * @param authUser                   Authenticated user
+     * @param userDomain                 User domain
+     * @param timeCreated                Created time
+     * @param refreshTokenCreatedTime    Refresh token created time
+     * @param validityPeriod             Validity Period
+     * @param refreshTokenValidityPeriod Refresh token validity period
+     * @param tokenScopeHash             Token scope hash
+     * @param tokenState                 Token state
+     * @param userType                   User type
+     * @param grantType                  Grant type
      */
     void storeToken(String accessToken, String refreshToken, String clientID, String authUser, String userDomain,
-            long timeCreated, long refreshTokenCreatedTime, int validityPeriod, int refreshTokenValidityPeriod,
-            String tokenScopeHash, String tokenState, String userType, String grantType);
+                    long timeCreated, long refreshTokenCreatedTime, int validityPeriod, int refreshTokenValidityPeriod,
+                    String tokenScopeHash, String tokenState, String userType, String grantType);
 
     /**
      * Retrieve token information
      *
-     * @param accessToken
-     * @return
+     * @param accessToken Access token value
+     * @return AccessTokenDTO
      */
     AccessTokenDTO getTokenInfo(String accessToken);
 }
